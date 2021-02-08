@@ -17,16 +17,14 @@ const rl = readline.createInterface({
 
 
 // GET: HTTP
-// rl.question('What is your name? ', function (name) {
-
-// })
-rl.question(`What would you liek to do today: (GET/POST/PUT/DELETE)`, function (method) {
-    if (method === "GET") {
-        rl.question('What is the request url? ', function (url) {
-            const output = https.get(`${url}`)
-            const writeStream = fs.writeFileSync('output/get_output.txt', JSON.stringify(output));
-            console.log(output);
-        })
-    }
+rl.question('What is your name? ', function (name) {
+    rl.question(`What would you liek to do today: (GET/POST/PUT/DELETE)`, function (method) {
+        if (method === "GET") {
+            rl.question('What is the request url? ', function (url) {
+                const output = https.get(`${url}`)
+                const writeStream = fs.writeFileSync('output/get_output.txt', JSON.stringify(output));
+                console.log(output);
+            })
+        }
+    })
 })
-
