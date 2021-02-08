@@ -2,6 +2,8 @@ const https = require('https');
 const chalk = require('chalk')
 const yargs = require('yargs')
 const readline = require("readline");
+const fs = require('fs');
+
 
 
 // Customerie yargs verison
@@ -18,11 +20,11 @@ const rl = readline.createInterface({
 // rl.question('What is your name? ', function (name) {
 
 // })
-rl.question(`What would you liek to do today ${name} (GET/POST/PUT/DELETE)`, function (method) {
+rl.question(`What would you liek to do today: (GET/POST/PUT/DELETE)`, function (method) {
     if (method === "GET") {
         rl.question('What is the request url? ', function (url) {
             const output = https.get(`${url}`)
-            fs.writeFile('get_output.txt', output, callbackFunction)
+            const writeStream = fs.writeFileSync('get_output.txt', JSON.stringify(output));
             console.log(output);
         })
     }
