@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # Auto-generated files
-get_output.txt
+/output
