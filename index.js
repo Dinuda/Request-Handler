@@ -24,7 +24,7 @@ rl.question(`What would you liek to do today: (GET/POST/PUT/DELETE)`, function (
     if (method === "GET") {
         rl.question('What is the request url? ', function (url) {
             const output = https.get(`${url}`)
-            const writeStream = fs.writeFileSync('get_output.txt', JSON.stringify(output));
+            const writeStream = fs.writeFileSync('output/get_output.txt', JSON.stringify(output));
             console.log(output);
         })
     }
